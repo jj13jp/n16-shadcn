@@ -125,7 +125,7 @@ export function Header() {
 						whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
 					>
-						{resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+						{resolvedTheme === "light" ? <Sun size={16} /> : <Moon size={16} />}
 					</motion.button>
 
 					{/* Mobile hamburger */}

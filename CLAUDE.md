@@ -18,7 +18,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `pnpm build` / `pnpm start` — 本番ビルド / 起動
 - `pnpm check` — Biome の lint + format を自動修正（`biome check --write`）
 - `pnpm typecheck` — `tsc --noEmit` で型チェック
-- テスト — vitest 導入済みだが package.json に script 未定義。`pnpm vitest`（watch）、単体は `pnpm vitest run <path>`
+- `pnpm test` — vitest（watch モード）
+- `pnpm test:run` — vitest 単発実行（`vitest run`）。単体ファイルは `pnpm test:run <path>`
+- `pnpm test:ui` — vitest UI（`vitest --ui`）
+- `pnpm test:ci` — カバレッジ付き単発実行（`vitest run --coverage`）
+
+`vitest.config.mts` は coverage(v8) のみ設定で、test 環境は既定の `node`（`environment: jsdom` も `setupFiles`・`globals` も未設定）。**React コンポーネントを @testing-library/react でテストする場合は、ファイル先頭に `// @vitest-environment jsdom` を付ける**か config に jsdom 環境を追加する。
 
 ## アーキテクチャ・ディレクトリ規約
 
@@ -36,6 +41,7 @@ App Router（RSC 有効）。パスエイリアス `@/*` → `src/*`。
 - Tailwind CSS v4（`@tailwindcss/postcss`）。`tailwind.config` ファイルは無く、設定は `src/app/globals.css` の CSS 変数ベース
 - 色は oklch の CSS 変数で定義（`globals.css` の `:root` と `.dark`）
 - アイコン: lucide-react、UI プリミティブ: radix-ui
+- **ビジュアル目標は @DESIGN.md（メルカリ）**。ただし DESIGN.md は参照元サイトの実測値で「CSS Framework: Panda CSS / font 15px / Mercari Red #ff333f」と記すが、**実装スタックは本リポジトリの shadcn(radix-luma) + Tailwind v4 + oklch neutral**。DESIGN.md の数値・配色を Tailwind/CSS 変数へ翻訳して適用し、Panda CSS は導入しない。
 
 ## コード規約（Biome で強制）
 
@@ -49,3 +55,5 @@ App Router（RSC 有効）。パスエイリアス `@/*` → `src/*`。
 
 ## その他
 - 適切なタイミングで"git commit"を実施する
+
+@DESIGN.md

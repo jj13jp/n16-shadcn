@@ -115,9 +115,28 @@ export function Header() {
 					<motion.button
 						type="button"
 						className="p-1.5 rounded-md text-muted-foreground hover:text-foreground transition-colors"
-						onClick={() =>
-							setTheme(resolvedTheme === "dark" ? "light" : "dark")
-						}
+						onClick={() => {
+							const next = resolvedTheme === "dark" ? "light" : "dark"
+							if (
+								typeof document !== "undefined" &&
+								"startViewTransition" in document
+							) {
+								document.documentElement.classList.add("theme-switching")
+								;(
+									document as Document & {
+										startViewTransition: (cb: () => void) => {
+											finished: Promise<void>
+										}
+									}
+								)
+									.startViewTransition(() => setTheme(next))
+									.finished.finally(() => {
+										document.documentElement.classList.remove("theme-switching")
+									})
+							} else {
+								setTheme(next)
+							}
+						}}
 						aria-label="テーマ切り替え"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}

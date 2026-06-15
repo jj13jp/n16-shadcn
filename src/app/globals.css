@@ -147,6 +147,26 @@
 	}
 }
 
+/* ダークモード切り替えアニメーション（フェードのみ、translateY なし） */
+.theme-switching::view-transition-old(root) {
+	animation: 200ms ease-out both vt-theme-fade-out;
+}
+.theme-switching::view-transition-new(root) {
+	animation: 300ms ease-in both vt-theme-fade-in;
+}
+
+@keyframes vt-theme-fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes vt-theme-fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
 /* ヘッダーは遷移に参加させない */
 ::view-transition-group(site-header) {
 	animation: none;

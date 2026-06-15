@@ -3,6 +3,7 @@
 import type { Variants } from "motion/react"
 import { motion } from "motion/react"
 import { useTranslations } from "next-intl"
+import { Link } from "@/i18n/routing"
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
@@ -89,27 +90,28 @@ export function HeroSection() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 1.1 }}
 				>
-					<motion.a
-						href="#works"
-						className="inline-flex items-center gap-3 px-8 py-3.5 bg-foreground text-background text-sm font-medium rounded-full"
-						whileHover={{
-							scale: 1.04,
-							transition: { duration: 0.2 },
-						}}
-						whileTap={{ scale: 0.97 }}
-					>
-						{t("cta")}
+					<Link href="/works">
 						<motion.span
-							animate={{ x: [0, 4, 0] }}
-							transition={{
-								duration: 1.5,
-								repeat: Number.POSITIVE_INFINITY,
-								ease: "easeInOut",
+							className="inline-flex items-center gap-3 px-8 py-3.5 bg-foreground text-background text-sm font-medium rounded-full cursor-pointer"
+							whileHover={{
+								scale: 1.04,
+								transition: { duration: 0.2 },
 							}}
+							whileTap={{ scale: 0.97 }}
 						>
-							→
+							{t("cta")}
+							<motion.span
+								animate={{ x: [0, 4, 0] }}
+								transition={{
+									duration: 1.5,
+									repeat: Number.POSITIVE_INFINITY,
+									ease: "easeInOut",
+								}}
+							>
+								→
+							</motion.span>
 						</motion.span>
-					</motion.a>
+					</Link>
 				</motion.div>
 			</div>
 

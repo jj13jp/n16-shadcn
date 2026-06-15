@@ -3,6 +3,8 @@ import { DM_Serif_Display, Geist_Mono, Noto_Sans } from "next/font/google"
 import { notFound } from "next/navigation"
 import { hasLocale, NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
+import { Footer } from "@/components/layout/Footer"
+import { Header } from "@/components/layout/Header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { routing } from "@/i18n/routing"
 import { cn } from "@/lib/utils"
@@ -58,7 +60,11 @@ export default async function LocaleLayout({
 		>
 			<body className="font-sans">
 				<NextIntlClientProvider messages={messages}>
-					<ThemeProvider>{children}</ThemeProvider>
+					<ThemeProvider>
+						<Header />
+						{children}
+						<Footer />
+					</ThemeProvider>
 				</NextIntlClientProvider>
 			</body>
 		</html>

@@ -19,14 +19,15 @@ export function Header() {
 	}, [])
 
 	const navItems = [
-		{ href: "#about", label: t("about") },
-		{ href: "#works", label: t("works") },
-		{ href: "#skills", label: t("skills") },
-		{ href: "#contact", label: t("contact") },
+		{ href: "/about", label: t("about") },
+		{ href: "/works", label: t("works") },
+		{ href: "/skills", label: t("skills") },
+		{ href: "/contact", label: t("contact") },
 	]
 
 	return (
 		<motion.header
+			style={{ viewTransitionName: "site-header" }}
 			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
 				scrolled
 					? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
@@ -37,30 +38,41 @@ export function Header() {
 			transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
 		>
 			<div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-				<motion.a
-					href="#"
-					className="font-display text-lg tracking-tight"
-					whileHover={{ opacity: 0.6 }}
-					transition={{ duration: 0.15 }}
-				>
-					Jo Aoki
-				</motion.a>
+				<Link href="/">
+					<motion.span
+						className="font-display text-lg tracking-tight cursor-pointer"
+						whileHover={{ opacity: 0.6 }}
+						transition={{ duration: 0.15 }}
+					>
+						Jo Aoki
+					</motion.span>
+				</Link>
 
 				{/* Desktop nav */}
 				<nav className="hidden md:flex items-center gap-8">
-					{navItems.map((item, i) => (
-						<motion.a
-							key={item.href}
-							href={item.href}
-							className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-							initial={{ opacity: 0, y: -10 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ delay: 0.1 + i * 0.06, duration: 0.4 }}
-							whileHover={{ y: -2 }}
-						>
-							{item.label}
-						</motion.a>
-					))}
+					{navItems.map((item, i) => {
+						const isActive = pathname === item.href
+						return (
+							<motion.div
+								key={item.href}
+								initial={{ opacity: 0, y: -10 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ delay: 0.1 + i * 0.06, duration: 0.4 }}
+								whileHover={{ y: -2 }}
+							>
+								<Link
+									href={item.href}
+									className={`text-sm transition-colors ${
+										isActive
+											? "text-foreground font-medium"
+											: "text-muted-foreground hover:text-foreground"
+									}`}
+								>
+									{item.label}
+								</Link>
+							</motion.div>
+						)
+					})}
 				</nav>
 
 				<div className="flex items-center gap-4">
@@ -131,14 +143,18 @@ export function Header() {
 			>
 				<nav className="px-6 pb-6 pt-2 flex flex-col gap-4 bg-background/95 backdrop-blur-md border-b border-border">
 					{navItems.map((item) => (
-						<a
+						<Link
 							key={item.href}
 							href={item.href}
-							className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
+							className={`text-sm transition-colors py-1 ${
+								pathname === item.href
+									? "text-foreground font-medium"
+									: "text-muted-foreground hover:text-foreground"
+							}`}
 							onClick={() => setMenuOpen(false)}
 						>
 							{item.label}
-						</a>
+						</Link>
 					))}
 				</nav>
 			</motion.div>

@@ -67,5 +67,11 @@
 	},
 	"footer": {
 		"built": "Built with Next.js + shadcn-ui"
+	},
+	"notFound": {
+		"code": "404",
+		"heading": "ページが見つかりません",
+		"body": "お探しのページは存在しないか、移動または削除された可能性があります。",
+		"cta": "トップへ戻る"
 	}
 }

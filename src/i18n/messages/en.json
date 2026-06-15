@@ -67,5 +67,11 @@
 	},
 	"footer": {
 		"built": "Built with Next.js + shadcn-ui"
+	},
+	"notFound": {
+		"code": "404",
+		"heading": "Page Not Found",
+		"body": "The page you're looking for doesn't exist or has been moved.",
+		"cta": "Back to Home"
 	}
 }

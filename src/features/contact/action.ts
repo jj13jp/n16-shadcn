@@ -1,7 +1,7 @@
 "use server"
 
 import { parseWithZod } from "@conform-to/zod/v4"
-import { contactSchema } from "./schema"
+import { contactSchema } from "@/features/contact/schema"
 
 export async function submitContact(_prevState: unknown, formData: FormData) {
 	const submission = parseWithZod(formData, { schema: contactSchema })

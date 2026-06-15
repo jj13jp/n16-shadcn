@@ -1,5 +1,5 @@
-import { getLocale, getTranslations } from "next-intl/server"
 import Link from "next/link"
+import { getLocale, getTranslations } from "next-intl/server"
 
 export default async function NotFound() {
 	const locale = await getLocale()

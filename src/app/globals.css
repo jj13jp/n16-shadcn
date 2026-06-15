@@ -117,6 +117,58 @@
 	--sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ページ遷移アニメーション（View Transitions API） */
+::view-transition-old(root) {
+	animation: 220ms ease-in both vt-fade-out;
+}
+::view-transition-new(root) {
+	animation: 320ms ease-out 180ms both vt-fade-in;
+}
+
+@keyframes vt-fade-out {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateY(-6px);
+	}
+}
+
+@keyframes vt-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ヘッダーは遷移に参加させない */
+::view-transition-group(site-header) {
+	animation: none;
+	z-index: 100;
+}
+::view-transition-old(site-header) {
+	display: none;
+}
+::view-transition-new(site-header) {
+	animation: none;
+}
+
+/* モーション軽減設定 */
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-old(*),
+	::view-transition-new(*),
+	::view-transition-group(*) {
+		animation-duration: 0s !important;
+		animation-delay: 0s !important;
+	}
+}
+
 @layer base {
 	* {
 		@apply border-border outline-ring/50;

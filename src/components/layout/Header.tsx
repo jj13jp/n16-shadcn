@@ -1,7 +1,9 @@
 "use client"
 
+import { Moon, Sun } from "lucide-react"
 import { motion } from "motion/react"
 import { useLocale, useTranslations } from "next-intl"
+import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import { Link, usePathname } from "@/i18n/routing"
 
@@ -9,6 +11,7 @@ export function Header() {
 	const t = useTranslations("nav")
 	const locale = useLocale()
 	const pathname = usePathname()
+	const { resolvedTheme, setTheme } = useTheme()
 	const [scrolled, setScrolled] = useState(false)
 	const [menuOpen, setMenuOpen] = useState(false)
 
@@ -76,6 +79,23 @@ export function Header() {
 				</nav>
 
 				<div className="flex items-center gap-4">
+					{/* Theme toggle */}
+					<motion.button
+						type="button"
+						className="p-1.5 rounded-md text-muted-foreground hover:text-foreground transition-colors"
+						onClick={() =>
+							setTheme(resolvedTheme === "dark" ? "light" : "dark")
+						}
+						aria-label="テーマ切り替え"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ delay: 0.4 }}
+						whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+					>
+						{resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+					</motion.button>
+
 					{/* Language switcher */}
 					<motion.div
 						className="flex items-center gap-1 font-mono text-xs"

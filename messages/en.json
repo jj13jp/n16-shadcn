@@ -56,7 +56,14 @@
 	"contact": {
 		"heading": "Contact",
 		"body": "Feel free to reach out for work inquiries or any questions.",
-		"emailLabel": "Send Email"
+		"form": {
+			"name": "Your Name",
+			"email": "Email Address",
+			"message": "Message",
+			"submit": "Send Message",
+			"success": "Message sent successfully. Thank you!",
+			"error": "Something went wrong. Please try again later."
+		}
 	},
 	"footer": {
 		"built": "Built with Next.js + shadcn-ui"

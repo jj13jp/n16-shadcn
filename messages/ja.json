@@ -55,8 +55,15 @@
 	},
 	"contact": {
 		"heading": "Contact",
-		"body": "お仕事のご依頼やご質問はお気軽にどうぞ。",
-		"emailLabel": "メールを送る"
+		"body": "お仕事のご依頼やご質問はフォームからお気軽にどうぞ。",
+		"form": {
+			"name": "お名前",
+			"email": "メールアドレス",
+			"message": "メッセージ",
+			"submit": "送信する",
+			"success": "送信が完了しました。ありがとうございます。",
+			"error": "送信に失敗しました。時間をおいて再度お試しください。"
+		}
 	},
 	"footer": {
 		"built": "Built with Next.js + shadcn-ui"

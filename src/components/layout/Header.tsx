@@ -79,29 +79,12 @@ export function Header() {
 				</nav>
 
 				<div className="flex items-center gap-4">
-					{/* Theme toggle */}
-					<motion.button
-						type="button"
-						className="p-1.5 rounded-md text-muted-foreground hover:text-foreground transition-colors"
-						onClick={() =>
-							setTheme(resolvedTheme === "dark" ? "light" : "dark")
-						}
-						aria-label="テーマ切り替え"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.4 }}
-						whileHover={{ scale: 1.1 }}
-						whileTap={{ scale: 0.9 }}
-					>
-						{resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-					</motion.button>
-
 					{/* Language switcher */}
 					<motion.div
 						className="flex items-center gap-1 font-mono text-xs"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
-						transition={{ delay: 0.5 }}
+						transition={{ delay: 0.4 }}
 					>
 						<Link
 							href={pathname}
@@ -127,6 +110,23 @@ export function Header() {
 							EN
 						</Link>
 					</motion.div>
+
+					{/* Theme toggle */}
+					<motion.button
+						type="button"
+						className="p-1.5 rounded-md text-muted-foreground hover:text-foreground transition-colors"
+						onClick={() =>
+							setTheme(resolvedTheme === "dark" ? "light" : "dark")
+						}
+						aria-label="テーマ切り替え"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ delay: 0.5 }}
+						whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+					>
+						{resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+					</motion.button>
 
 					{/* Mobile hamburger */}
 					<button

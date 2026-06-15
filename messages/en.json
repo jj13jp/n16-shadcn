@@ -1,0 +1,64 @@
+{
+	"nav": {
+		"about": "About",
+		"works": "Works",
+		"skills": "Skills",
+		"contact": "Contact"
+	},
+	"hero": {
+		"name": "Jo Aoki",
+		"nameRoman": "Jo Aoki",
+		"title": "Frontend Engineer",
+		"cta": "View My Works"
+	},
+	"about": {
+		"heading": "About",
+		"body": "A frontend engineer specializing in React and Next.js. I prioritize user-centered design and maintainable code in everything I build.",
+		"body2": "Passionate about UI/UX, I approach products from both design and engineering perspectives. Component architecture with Tailwind CSS and shadcn-ui is my core strength."
+	},
+	"works": {
+		"heading": "Works",
+		"items": [
+			{
+				"title": "Portfolio Site",
+				"description": "Personal portfolio built with Next.js 16, shadcn-ui, and next-intl. Features bilingual support and rich animations via motion.",
+				"tech": ["Next.js", "TypeScript", "Tailwind CSS", "next-intl", "motion"]
+			},
+			{
+				"title": "E-Commerce Dashboard",
+				"description": "Admin dashboard with real-time data visualization and intuitive UI design, built for scale.",
+				"tech": ["React", "TypeScript", "Zustand", "Recharts"]
+			},
+			{
+				"title": "Design System",
+				"description": "Component library for product teams, documented with Storybook and validated with Zod schemas.",
+				"tech": ["React", "Tailwind CSS", "Storybook", "Zod"]
+			}
+		]
+	},
+	"skills": {
+		"heading": "Skills",
+		"categories": [
+			{
+				"label": "Frontend",
+				"items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "motion"]
+			},
+			{
+				"label": "State / Validation",
+				"items": ["Zustand", "Zod", "React Hook Form"]
+			},
+			{
+				"label": "Tools & Others",
+				"items": ["Git", "Figma", "Vitest", "Biome", "pnpm", "shadcn-ui"]
+			}
+		]
+	},
+	"contact": {
+		"heading": "Contact",
+		"body": "Feel free to reach out for work inquiries or any questions.",
+		"emailLabel": "Send Email"
+	},
+	"footer": {
+		"built": "Built with Next.js + shadcn-ui"
+	}
+}

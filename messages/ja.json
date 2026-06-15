@@ -1,0 +1,64 @@
+{
+	"nav": {
+		"about": "About",
+		"works": "Works",
+		"skills": "Skills",
+		"contact": "Contact"
+	},
+	"hero": {
+		"name": "青木丈",
+		"nameRoman": "Jo Aoki",
+		"title": "フロントエンドエンジニア",
+		"cta": "制作物を見る"
+	},
+	"about": {
+		"heading": "About",
+		"body": "React / Next.js を中心としたフロントエンド開発を専門とするエンジニアです。ユーザー体験を起点にした設計と、保守性の高いコードを大切にしています。",
+		"body2": "UI/UX に強い関心を持ち、デザインと実装の両面からプロダクトに向き合います。Tailwind CSS・shadcn-ui を活用したコンポーネント設計が得意領域です。"
+	},
+	"works": {
+		"heading": "Works",
+		"items": [
+			{
+				"title": "Portfolio Site",
+				"description": "Next.js 16 + shadcn-ui + next-intl で構築したポートフォリオサイト。日英多言語対応・motion によるリッチアニメーション実装。",
+				"tech": ["Next.js", "TypeScript", "Tailwind CSS", "next-intl", "motion"]
+			},
+			{
+				"title": "E-Commerce Dashboard",
+				"description": "管理者向けダッシュボード。リアルタイムデータ可視化と直感的な UI 設計を重視して構築。",
+				"tech": ["React", "TypeScript", "Zustand", "Recharts"]
+			},
+			{
+				"title": "Design System",
+				"description": "プロダクトチーム向けコンポーネントライブラリ。Storybook によるドキュメント管理と Zod によるバリデーション。",
+				"tech": ["React", "Tailwind CSS", "Storybook", "Zod"]
+			}
+		]
+	},
+	"skills": {
+		"heading": "Skills",
+		"categories": [
+			{
+				"label": "Frontend",
+				"items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "motion"]
+			},
+			{
+				"label": "State / Validation",
+				"items": ["Zustand", "Zod", "React Hook Form"]
+			},
+			{
+				"label": "Tools & Others",
+				"items": ["Git", "Figma", "Vitest", "Biome", "pnpm", "shadcn-ui"]
+			}
+		]
+	},
+	"contact": {
+		"heading": "Contact",
+		"body": "お仕事のご依頼やご質問はお気軽にどうぞ。",
+		"emailLabel": "メールを送る"
+	},
+	"footer": {
+		"built": "Built with Next.js + shadcn-ui"
+	}
+}

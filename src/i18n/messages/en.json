@@ -61,6 +61,7 @@
 			"email": "Email Address",
 			"message": "Message",
 			"submit": "Send Message",
+			"successHeading": "Thank you.",
 			"success": "Message sent successfully. Thank you!",
 			"error": "Something went wrong. Please try again later."
 		}

@@ -77,20 +77,36 @@ export function ContactSection() {
 					>
 						{isSuccess ? (
 							<motion.div
-								initial={{ opacity: 0, scale: 0.97 }}
-								animate={{ opacity: 1, scale: 1 }}
-								transition={{ duration: 0.5, ease: EASE }}
-								className="py-12 text-center"
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								transition={{ duration: 0.2 }}
+								className="py-8"
 							>
+								<div className="overflow-hidden mb-6">
+									<motion.p
+										className="font-display text-5xl md:text-7xl tracking-tight"
+										initial={{ y: 80 }}
+										animate={{ y: 0 }}
+										transition={{ duration: 0.8, ease: EASE }}
+									>
+										{t("form.successHeading")}
+									</motion.p>
+								</div>
 								<motion.div
-									className="w-12 h-px bg-foreground mx-auto mb-6"
+									className="h-px bg-foreground mb-6"
+									style={{ transformOrigin: "left" }}
 									initial={{ scaleX: 0 }}
 									animate={{ scaleX: 1 }}
-									transition={{ duration: 0.6, ease: EASE }}
+									transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
 								/>
-								<p className="text-foreground font-medium">
+								<motion.p
+									className="font-mono text-xs text-muted-foreground/70 tracking-[0.12em] uppercase"
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									transition={{ duration: 0.6, delay: 0.8 }}
+								>
 									{t("form.success")}
-								</p>
+								</motion.p>
 							</motion.div>
 						) : (
 							<form

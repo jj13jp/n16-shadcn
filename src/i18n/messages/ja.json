@@ -61,6 +61,7 @@
 			"email": "メールアドレス",
 			"message": "メッセージ",
 			"submit": "送信する",
+			"successHeading": "Thank you.",
 			"success": "送信が完了しました。ありがとうございます。",
 			"error": "送信に失敗しました。時間をおいて再度お試しください。"
 		}

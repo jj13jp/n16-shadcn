@@ -34,7 +34,7 @@ export function ContactSection() {
 		shouldRevalidate: "onInput",
 	})
 
-	const isSuccess = lastResult?.status === "success"
+	const isSuccess = lastResult !== undefined && lastResult.status !== "error"
 
 	return (
 		<section id="contact" ref={ref} className="py-40 px-6 bg-muted/20">

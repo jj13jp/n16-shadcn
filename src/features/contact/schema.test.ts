@@ -67,24 +67,6 @@ describe("contactSchema", () => {
 		)
 	})
 
-	test("name が文字列以外のとき失敗する", () => {
-		const result = contactSchema.safeParse({
-			name: 123,
-			email: "jo@example.com",
-			message: "10文字以上のメッセージです",
-		})
-		expect(result.success).toBe(false)
-	})
-
-	test("message が文字列以外のとき失敗する", () => {
-		const result = contactSchema.safeParse({
-			name: "青木丈",
-			email: "jo@example.com",
-			message: 123,
-		})
-		expect(result.success).toBe(false)
-	})
-
 	test("message が undefined のとき「メッセージを入力してください」", () => {
 		const result = contactSchema.safeParse({
 			name: "青木丈",

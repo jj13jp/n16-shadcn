@@ -2,7 +2,7 @@ import { z } from "zod"
 
 export const contactSchema = z.object({
 	name: z
-		.string({ error: (i) => (i.input === undefined ? "お名前を入力してください" : undefined) })
+		.string({ error: "お名前を入力してください" })
 		.min(1, "お名前を入力してください"),
 	email: z.email({
 		error: (i) =>
@@ -11,7 +11,7 @@ export const contactSchema = z.object({
 				: "有効なメールアドレスを入力してください",
 	}),
 	message: z
-		.string({ error: (i) => (i.input === undefined ? "メッセージを入力してください" : undefined) })
+		.string({ error: "メッセージを入力してください" })
 		.min(10, "メッセージは10文字以上で入力してください"),
 })
 

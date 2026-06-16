@@ -12,8 +12,11 @@ export function Header() {
 	const locale = useLocale()
 	const pathname = usePathname()
 	const { resolvedTheme, setTheme } = useTheme()
+	const [mounted, setMounted] = useState(false)
 	const [scrolled, setScrolled] = useState(false)
 	const [menuOpen, setMenuOpen] = useState(false)
+
+	useEffect(() => setMounted(true), [])
 
 	useEffect(() => {
 		const handler = () => setScrolled(window.scrollY > 60)
@@ -144,7 +147,7 @@ export function Header() {
 						whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
 					>
-						{resolvedTheme === "light" ? <Sun size={16} /> : <Moon size={16} />}
+						{mounted && (resolvedTheme === "light" ? <Sun size={16} /> : <Moon size={16} />)}
 					</motion.button>
 
 					{/* Mobile hamburger */}

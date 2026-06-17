@@ -1,11 +1,11 @@
 import type { Metadata } from "next"
 import { SkillsSection } from "@/components/sections/SkillsSection"
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? ""
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 
 const META = {
 	ja: {
-		title: "Skills",
+		title: "スキル",
 		description:
 			"青木丈の技術スタック。React・Next.js・TypeScript を中心に、フロントエンド開発で活用しているツールと得意領域を紹介します。",
 	},

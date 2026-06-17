@@ -21,6 +21,7 @@ const validFormData = () => {
 describe("submitContact", () => {
 	beforeEach(() => {
 		mockSend.mockReset()
+		process.env.RESEND_API_KEY = "re_test_key"
 		process.env.MAIL_FROM = "noreply@example.com"
 		process.env.EMAIL_ADDRESS = "admin@example.com"
 	})

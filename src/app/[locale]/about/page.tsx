@@ -1,11 +1,11 @@
 import type { Metadata } from "next"
 import { AboutSection } from "@/components/sections/AboutSection"
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? ""
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 
 const META = {
 	ja: {
-		title: "About",
+		title: "プロフィール",
 		description:
 			"React / Next.js を中心としたフロントエンド開発を専門とするエンジニア、青木丈のプロフィールページ。UI/UX を重視したコンポーネント設計が得意領域です。",
 	},

@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
 		viewTransition: true,
 	},
 	async headers() {
+		const csp = [
+			"default-src 'self'",
+			"script-src 'self' 'unsafe-inline'",
+			"style-src 'self' 'unsafe-inline'",
+			"img-src 'self' data:",
+			"font-src 'self'",
+			"connect-src 'self'",
+			"frame-ancestors 'none'",
+		].join("; ")
+
 		return [
 			{
 				source: "/(.*)",
@@ -21,6 +31,10 @@ const nextConfig: NextConfig = {
 					{
 						key: "Permissions-Policy",
 						value: "camera=(), microphone=(), geolocation=()",
+					},
+					{
+						key: "Content-Security-Policy",
+						value: csp,
 					},
 				],
 			},

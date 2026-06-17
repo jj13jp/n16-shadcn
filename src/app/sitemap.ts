@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? ""
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 const locales = ["ja", "en"] as const
 const pages = ["", "/about", "/works", "/skills", "/contact"] as const
 
@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 				languages: {
 					ja: `${SITE_URL}/ja${page}`,
 					en: `${SITE_URL}/en${page}`,
+					"x-default": `${SITE_URL}/ja${page}`,
 				},
 			},
 		}))

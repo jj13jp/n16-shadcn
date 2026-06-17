@@ -13,11 +13,14 @@ export async function submitContact(_prevState: unknown, formData: FormData) {
 		return submission.reply()
 	}
 
+	const resendApiKey = process.env.RESEND_API_KEY
 	const mailFrom = process.env.MAIL_FROM
 	const emailAddress = process.env.EMAIL_ADDRESS
 
-	if (!mailFrom || !emailAddress) {
-		console.error("MAIL_FROM or EMAIL_ADDRESS is not configured")
+	if (!resendApiKey || !mailFrom || !emailAddress) {
+		console.error(
+			"RESEND_API_KEY, MAIL_FROM, or EMAIL_ADDRESS is not configured"
+		)
 		return submission.reply({
 			formErrors: ["送信に失敗しました。時間をおいて再度お試しください。"],
 		})
@@ -25,15 +28,21 @@ export async function submitContact(_prevState: unknown, formData: FormData) {
 
 	const { name, email, message } = submission.value
 
-	const { error } = await resend.emails.send({
-		from: mailFrom,
-		to: emailAddress,
-		replyTo: email,
-		subject: `お問い合わせ: ${name}`,
-		text: `お名前: ${name}\nメールアドレス: ${email}\n\n${message}`,
-	})
+	try {
+		const { error } = await resend.emails.send({
+			from: mailFrom,
+			to: emailAddress,
+			replyTo: email,
+			subject: `お問い合わせ: ${name}`,
+			text: `お名前: ${name}\nメールアドレス: ${email}\n\n${message}`,
+		})
 
-	if (error) {
+		if (error) {
+			return submission.reply({
+				formErrors: ["送信に失敗しました。時間をおいて再度お試しください。"],
+			})
+		}
+	} catch {
 		return submission.reply({
 			formErrors: ["送信に失敗しました。時間をおいて再度お試しください。"],
 		})

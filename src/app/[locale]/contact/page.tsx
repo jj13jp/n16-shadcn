@@ -1,11 +1,11 @@
 import type { Metadata } from "next"
 import { ContactSection } from "@/components/sections/ContactSection"
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? ""
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 
 const META = {
 	ja: {
-		title: "Contact",
+		title: "お問い合わせ",
 		description:
 			"青木丈へのお仕事のご依頼・お問い合わせはこちらから。フォームよりお気軽にご連絡ください。",
 	},

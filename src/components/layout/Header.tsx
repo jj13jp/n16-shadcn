@@ -147,7 +147,12 @@ export function Header() {
 						whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
 					>
-						{mounted && (resolvedTheme === "light" ? <Sun size={16} /> : <Moon size={16} />)}
+						{mounted &&
+							(resolvedTheme === "light" ? (
+								<Sun size={16} />
+							) : (
+								<Moon size={16} />
+							))}
 					</motion.button>
 
 					{/* Mobile hamburger */}
@@ -159,7 +164,7 @@ export function Header() {
 					>
 						<motion.span
 							className="block w-5 h-px bg-foreground origin-center"
-							animate={menuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+							animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
 							transition={{ duration: 0.25 }}
 						/>
 						<motion.span
@@ -169,7 +174,7 @@ export function Header() {
 						/>
 						<motion.span
 							className="block w-5 h-px bg-foreground origin-center"
-							animate={menuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
+							animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
 							transition={{ duration: 0.25 }}
 						/>
 					</button>

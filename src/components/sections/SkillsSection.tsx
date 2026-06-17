@@ -24,20 +24,21 @@ export function SkillsSection() {
 				<div className="flex items-baseline gap-4 mb-20 overflow-hidden">
 					<motion.span
 						className="font-mono text-xs text-muted-foreground/50 self-start mt-1"
+						aria-hidden="true"
 						initial={{ opacity: 0 }}
 						animate={isInView ? { opacity: 1 } : {}}
 						transition={{ duration: 0.5 }}
 					>
 						03
 					</motion.span>
-					<motion.h2
+					<motion.h1
 						className="font-display text-6xl md:text-8xl tracking-tight"
 						initial={{ y: 60, opacity: 0 }}
 						animate={isInView ? { y: 0, opacity: 1 } : {}}
 						transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
 					>
 						{t("heading")}
-					</motion.h2>
+					</motion.h1>
 				</div>
 
 				<div className="space-y-14">

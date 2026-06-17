@@ -16,20 +16,21 @@ export function AboutSection() {
 				<div className="flex items-baseline gap-4 mb-20 overflow-hidden">
 					<motion.span
 						className="font-mono text-xs text-muted-foreground/50 self-start mt-1"
+						aria-hidden="true"
 						initial={{ opacity: 0 }}
 						animate={isInView ? { opacity: 1 } : {}}
 						transition={{ duration: 0.5 }}
 					>
 						01
 					</motion.span>
-					<motion.h2
+					<motion.h1
 						className="font-display text-6xl md:text-8xl tracking-tight"
 						initial={{ y: 60, opacity: 0 }}
 						animate={isInView ? { y: 0, opacity: 1 } : {}}
 						transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
 					>
 						{t("heading")}
-					</motion.h2>
+					</motion.h1>
 				</div>
 
 				<div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -72,6 +73,7 @@ export function AboutSection() {
 							/>
 							<motion.span
 								className="font-display text-8xl text-foreground/10 select-none"
+								aria-hidden="true"
 								animate={isInView ? { scale: [0.9, 1] } : {}}
 								transition={{ duration: 1, delay: 0.4 }}
 							>

@@ -46,17 +46,18 @@ export function ContactSection() {
 						initial={{ opacity: 0 }}
 						animate={isInView ? { opacity: 1 } : {}}
 						transition={{ duration: 0.5 }}
+						aria-hidden="true"
 					>
 						04
 					</motion.span>
-					<motion.h2
+					<motion.h1
 						className="font-display text-6xl md:text-8xl tracking-tight"
 						initial={{ y: 60, opacity: 0 }}
 						animate={isInView ? { y: 0, opacity: 1 } : {}}
 						transition={{ duration: 0.8, ease: EASE }}
 					>
 						{t("heading")}
-					</motion.h2>
+					</motion.h1>
 				</div>
 
 				<div className="max-w-2xl">
@@ -129,6 +130,8 @@ export function ContactSection() {
 									/>
 									{fields.name.errors && (
 										<motion.p
+											id={fields.name.errorId}
+											role="alert"
 											className="mt-2 text-xs text-destructive font-mono"
 											initial={{ opacity: 0, y: -4 }}
 											animate={{ opacity: 1, y: 0 }}
@@ -154,6 +157,8 @@ export function ContactSection() {
 									/>
 									{fields.email.errors && (
 										<motion.p
+											id={fields.email.errorId}
+											role="alert"
 											className="mt-2 text-xs text-destructive font-mono"
 											initial={{ opacity: 0, y: -4 }}
 											animate={{ opacity: 1, y: 0 }}
@@ -180,6 +185,8 @@ export function ContactSection() {
 									/>
 									{fields.message.errors && (
 										<motion.p
+											id={fields.message.errorId}
+											role="alert"
 											className="mt-2 text-xs text-destructive font-mono"
 											initial={{ opacity: 0, y: -4 }}
 											animate={{ opacity: 1, y: 0 }}
@@ -192,7 +199,11 @@ export function ContactSection() {
 
 								{/* フォームエラー */}
 								{form.errors && (
-									<p className="text-xs text-destructive font-mono">
+									<p
+										id={form.errorId}
+										role="alert"
+										className="text-xs text-destructive font-mono"
+									>
 										{form.errors[0]}
 									</p>
 								)}
@@ -218,6 +229,7 @@ export function ContactSection() {
 										<>
 											{t("form.submit")}
 											<motion.span
+												aria-hidden="true"
 												animate={{ x: [0, 4, 0] }}
 												transition={{
 													duration: 1.5,

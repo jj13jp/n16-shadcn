@@ -49,7 +49,7 @@ describe("submitContact", () => {
 				from: "noreply@example.com",
 				to: "admin@example.com",
 				subject: "お問い合わせ: 青木丈",
-			}),
+			})
 		)
 	})
 

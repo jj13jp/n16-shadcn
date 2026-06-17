@@ -39,7 +39,7 @@ describe("contactSchema", () => {
 		})
 		expect(result.success).toBe(false)
 		expect(result.error?.issues[0].message).toBe(
-			"有効なメールアドレスを入力してください",
+			"有効なメールアドレスを入力してください"
 		)
 	})
 
@@ -51,7 +51,7 @@ describe("contactSchema", () => {
 		})
 		expect(result.success).toBe(false)
 		expect(result.error?.issues[0].message).toBe(
-			"メールアドレスを入力してください",
+			"メールアドレスを入力してください"
 		)
 	})
 
@@ -63,7 +63,7 @@ describe("contactSchema", () => {
 		})
 		expect(result.success).toBe(false)
 		expect(result.error?.issues[0].message).toBe(
-			"メッセージは10文字以上で入力してください",
+			"メッセージは10文字以上で入力してください"
 		)
 	})
 

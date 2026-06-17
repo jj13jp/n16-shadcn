@@ -40,7 +40,7 @@ export async function generateMetadata({
 	const authorName = locale === "ja" ? "青木丈" : "Jo Aoki"
 
 	return {
-		metadataBase: SITE_URL ? new URL(SITE_URL) : undefined,
+		metadataBase: new URL(SITE_URL || "http://localhost:3000"),
 		title: {
 			default: m.title,
 			template: `%s | ${authorName}`,
@@ -55,9 +55,17 @@ export async function generateMetadata({
 			description: m.description,
 			siteName: m.siteName,
 			url: `${SITE_URL}/${locale}`,
+			images: [
+				{
+					url: `${SITE_URL}/og-image.png`,
+					width: 1200,
+					height: 630,
+					alt: m.title,
+				},
+			],
 		},
 		twitter: {
-			card: "summary",
+			card: "summary_large_image",
 			title: m.title,
 			description: m.description,
 		},
@@ -66,6 +74,7 @@ export async function generateMetadata({
 			languages: {
 				ja: `${SITE_URL}/ja`,
 				en: `${SITE_URL}/en`,
+				"x-default": `${SITE_URL}/ja`,
 			},
 		},
 	}

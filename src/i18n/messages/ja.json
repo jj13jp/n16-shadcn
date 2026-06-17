@@ -18,6 +18,7 @@
 	},
 	"works": {
 		"heading": "Works",
+		"viewAll": "すべて見る",
 		"items": [
 			{
 				"title": "Portfolio Site",

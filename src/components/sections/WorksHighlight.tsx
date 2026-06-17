@@ -63,7 +63,7 @@ export function WorksHighlight() {
 							href="/works"
 							className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors tracking-widest uppercase"
 						>
-							View all →
+							{t("viewAll")} →
 						</Link>
 					</motion.div>
 				</div>

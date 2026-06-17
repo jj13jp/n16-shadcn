@@ -3,6 +3,13 @@ import { WorksHighlight } from "@/components/sections/WorksHighlight"
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? ""
 
+function safeJsonLd(data: unknown): string {
+	return JSON.stringify(data)
+		.replace(/</g, "\\u003c")
+		.replace(/>/g, "\\u003e")
+		.replace(/&/g, "\\u0026")
+}
+
 export default async function Page({
 	params,
 }: {
@@ -23,7 +30,7 @@ export default async function Page({
 		<main>
 			<script
 				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
 			/>
 			<HeroSection />
 			<WorksHighlight />

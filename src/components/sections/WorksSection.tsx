@@ -39,20 +39,21 @@ export function WorksSection() {
 				<div className="flex items-baseline gap-4 mb-20 overflow-hidden">
 					<motion.span
 						className="font-mono text-xs text-muted-foreground/50 self-start mt-1"
+						aria-hidden="true"
 						initial={{ opacity: 0 }}
 						animate={isInView ? { opacity: 1 } : {}}
 						transition={{ duration: 0.5 }}
 					>
 						02
 					</motion.span>
-					<motion.h2
+					<motion.h1
 						className="font-display text-6xl md:text-8xl tracking-tight"
 						initial={{ y: 60, opacity: 0 }}
 						animate={isInView ? { y: 0, opacity: 1 } : {}}
 						transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
 					>
 						{t("heading")}
-					</motion.h2>
+					</motion.h1>
 				</div>
 
 				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -81,9 +82,9 @@ export function WorksSection() {
 								</span>
 							</div>
 
-							<h3 className="font-display text-2xl md:text-3xl tracking-tight mb-3">
+							<h2 className="font-display text-2xl md:text-3xl tracking-tight mb-3">
 								{item.title}
-							</h3>
+							</h2>
 
 							<p className="text-sm text-muted-foreground leading-relaxed mb-7">
 								{item.description}
@@ -102,6 +103,7 @@ export function WorksSection() {
 
 							{/* カード右下の矢印 */}
 							<motion.span
+								aria-hidden="true"
 								className="absolute bottom-7 right-7 text-muted-foreground/20 text-xl font-light"
 								animate={{ x: 0, opacity: 0.2 }}
 								whileHover={{ x: 3, opacity: 0.6 }}

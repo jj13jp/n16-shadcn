@@ -100,7 +100,9 @@ export function Header() {
 						>
 							JA
 						</Link>
-						<span className="text-border select-none">/</span>
+						<span className="text-border select-none" aria-hidden="true">
+							/
+						</span>
 						<Link
 							href={pathname}
 							locale="en"
@@ -160,7 +162,9 @@ export function Header() {
 						type="button"
 						className="md:hidden flex flex-col gap-1.5 p-1"
 						onClick={() => setMenuOpen((v) => !v)}
-						aria-label="メニュー"
+						aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}
+						aria-expanded={menuOpen}
+						aria-controls="mobile-menu"
 					>
 						<motion.span
 							className="block w-5 h-px bg-foreground origin-center"
@@ -188,7 +192,10 @@ export function Header() {
 				animate={{ height: menuOpen ? "auto" : 0 }}
 				transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
 			>
-				<nav className="px-6 pb-6 pt-2 flex flex-col gap-4 bg-background/95 backdrop-blur-md border-b border-border">
+				<nav
+					id="mobile-menu"
+					className="px-6 pb-6 pt-2 flex flex-col gap-4 bg-background/95 backdrop-blur-md border-b border-border"
+				>
 					{navItems.map((item) => (
 						<Link
 							key={item.href}

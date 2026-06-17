@@ -58,12 +58,14 @@ export function HeroSection() {
 					variants={containerVariants}
 					initial="hidden"
 					animate="visible"
+					aria-label={name}
 				>
 					{name.split("").map((char, i) => (
 						<motion.span
 							key={`char-${i}`}
 							variants={charVariants}
 							className="inline-block"
+							aria-hidden="true"
 						>
 							{char === " " ? " " : char}
 						</motion.span>
@@ -101,6 +103,7 @@ export function HeroSection() {
 						>
 							{t("cta")}
 							<motion.span
+								aria-hidden="true"
 								animate={{ x: [0, 4, 0] }}
 								transition={{
 									duration: 1.5,
@@ -118,6 +121,7 @@ export function HeroSection() {
 			{/* スクロールインジケーター */}
 			<motion.div
 				className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+				aria-hidden="true"
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ delay: 1.6, duration: 0.6 }}

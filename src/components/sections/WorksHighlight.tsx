@@ -37,6 +37,7 @@ export function WorksHighlight() {
 					<div className="flex items-baseline gap-4 overflow-hidden">
 						<motion.span
 							className="font-mono text-xs text-muted-foreground/50 self-start mt-1"
+							aria-hidden="true"
 							initial={{ opacity: 0 }}
 							animate={isInView ? { opacity: 1 } : {}}
 							transition={{ duration: 0.5 }}
@@ -112,6 +113,7 @@ export function WorksHighlight() {
 							</div>
 
 							<motion.span
+								aria-hidden="true"
 								className="absolute bottom-7 right-7 text-muted-foreground/20 text-xl font-light"
 								animate={{ x: 0, opacity: 0.2 }}
 								whileHover={{ x: 3, opacity: 0.6 }}

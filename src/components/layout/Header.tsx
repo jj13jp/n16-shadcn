@@ -4,7 +4,7 @@ import { Moon, Sun } from "lucide-react"
 import { motion } from "motion/react"
 import { useLocale, useTranslations } from "next-intl"
 import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
+import { startTransition, useEffect, useMemo, useState } from "react"
 import { Link, usePathname } from "@/i18n/routing"
 
 export function Header() {
@@ -19,17 +19,21 @@ export function Header() {
 	useEffect(() => setMounted(true), [])
 
 	useEffect(() => {
-		const handler = () => setScrolled(window.scrollY > 60)
+		const handler = () =>
+			startTransition(() => setScrolled(window.scrollY > 60))
 		window.addEventListener("scroll", handler, { passive: true })
 		return () => window.removeEventListener("scroll", handler)
 	}, [])
 
-	const navItems = [
-		{ href: "/about", label: t("about") },
-		{ href: "/works", label: t("works") },
-		{ href: "/skills", label: t("skills") },
-		{ href: "/contact", label: t("contact") },
-	]
+	const navItems = useMemo(
+		() => [
+			{ href: "/about", label: t("about") },
+			{ href: "/works", label: t("works") },
+			{ href: "/skills", label: t("skills") },
+			{ href: "/contact", label: t("contact") },
+		],
+		[t]
+	)
 
 	return (
 		<motion.header

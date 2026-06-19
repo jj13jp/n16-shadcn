@@ -83,9 +83,7 @@ describe("submitContact", () => {
 
 	test("環境変数が未設定のときは送信せずフォームエラーを返す", async () => {
 		delete process.env.RESEND_API_KEY
-		const consoleSpy = vi
-			.spyOn(console, "error")
-			.mockImplementation(() => {})
+		const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {})
 
 		try {
 			const result = await submitContact(undefined, validFormData())

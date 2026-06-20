@@ -115,6 +115,16 @@ export function ContactSection() {
 								action={action}
 								className="space-y-10"
 							>
+								{/* ハニーポット: bot 対策。人間には不可視・フォーカス不可 */}
+								<input
+									type="text"
+									name="company"
+									tabIndex={-1}
+									autoComplete="off"
+									aria-hidden="true"
+									className="absolute left-[-9999px] h-px w-px opacity-0"
+								/>
+
 								{/* お名前 */}
 								<div className="relative">
 									<label

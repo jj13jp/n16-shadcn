@@ -13,6 +13,12 @@ export async function submitContact(_prevState: unknown, formData: FormData) {
 		return submission.reply()
 	}
 
+	// ハニーポット: 人間には不可視の項目。値が入っていれば bot とみなし、
+	// 送信せず成功を装って返す（bot に検知を悟らせない）。
+	if (formData.get("company")) {
+		return submission.reply({ resetForm: true })
+	}
+
 	const resendApiKey = process.env.RESEND_API_KEY
 	const mailFrom = process.env.MAIL_FROM
 	const emailAddress = process.env.EMAIL_ADDRESS

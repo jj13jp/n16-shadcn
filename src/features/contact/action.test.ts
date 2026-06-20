@@ -81,6 +81,16 @@ describe("submitContact", () => {
 		expect(mockSend).toHaveBeenCalledTimes(1)
 	})
 
+	test("ハニーポット項目に値があるときは送信せず成功を装って返す", async () => {
+		const fd = validFormData()
+		fd.append("company", "bot-filled-value")
+
+		const result = await submitContact(undefined, fd)
+
+		expect(result.status).toBeUndefined()
+		expect(mockSend).not.toHaveBeenCalled()
+	})
+
 	test("環境変数が未設定のときは送信せずフォームエラーを返す", async () => {
 		delete process.env.RESEND_API_KEY
 		const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {})
